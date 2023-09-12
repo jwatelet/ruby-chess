@@ -1,17 +1,8 @@
 require_relative 'string'
 
 class Board
-  def initialize
-    @table = [
-      ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜'],
-      ["\u265F", "\u265F", "\u265F", "\u265F", "\u265F", "\u265F", "\u265F", "\u265F"],
-      [nil, nil, nil, nil, nil, nil, nil, nil],
-      [nil, nil, nil, nil, nil, nil, nil, nil],
-      [nil, nil, nil, nil, nil, nil, nil, nil],
-      [nil, nil, nil, nil, nil, nil, nil, nil],
-      ['♙', '♙', '♙', '♙', '♙', '♙', '♙', '♙'],
-      ['♖', '♘', '♗', '♕', '♔', '♗', '♘', '♖']
-    ]
+  def initialize(**hash)
+    @table = initialize_table(hash)
   end
 
   def draw
@@ -32,6 +23,25 @@ class Board
       centered_cell.bg_black
     else
       centered_cell.bg_gray
+    end
+  end
+
+  private
+
+  def initialize_table(hash)
+    if hash[:table].nil?
+      [
+        ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜'],
+        ["\u265F", "\u265F", "\u265F", "\u265F", "\u265F", "\u265F", "\u265F", "\u265F"],
+        [nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil, nil, nil, nil],
+        ['♙', '♙', '♙', '♙', '♙', '♙', '♙', '♙'],
+        ['♖', '♘', '♗', '♕', '♔', '♗', '♘', '♖']
+      ]
+    else
+      hash[:table]
     end
   end
 end
