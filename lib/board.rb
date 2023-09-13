@@ -33,7 +33,7 @@ class Board
     if hash[:table].nil?
       [
         ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜'],
-        ["\u265F", "\u265F", "\u265F", "\u265F", "\u265F", "\u265F", "\u265F", "\u265F"],
+        black_pawn_line,
         [nil, nil, nil, nil, nil, nil, nil, nil],
         [nil, nil, nil, nil, nil, nil, nil, nil],
         [nil, nil, nil, nil, nil, nil, nil, nil],
