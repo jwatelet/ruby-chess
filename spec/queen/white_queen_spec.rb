@@ -1,6 +1,6 @@
 require_relative '../../lib/queen'
 
-describe WhitePawn do
+describe WhiteQueen do
   let(:queen) { WhiteQueen.new }
 
   describe '#to_s' do

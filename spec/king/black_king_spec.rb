@@ -1,6 +1,6 @@
 require_relative '../../lib/king'
 
-describe BlackPawn do
+describe BlackKing do
   let(:king) { BlackKing.new }
 
   describe '#to_s' do
