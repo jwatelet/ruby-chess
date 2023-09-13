@@ -1,4 +1,5 @@
 require_relative 'string'
+require_relative 'pawn'
 
 class Board
   def initialize(**hash)
@@ -37,11 +38,37 @@ class Board
         [nil, nil, nil, nil, nil, nil, nil, nil],
         [nil, nil, nil, nil, nil, nil, nil, nil],
         [nil, nil, nil, nil, nil, nil, nil, nil],
-        ['♙', '♙', '♙', '♙', '♙', '♙', '♙', '♙'],
+        white_pawn_line,
         ['♖', '♘', '♗', '♕', '♔', '♗', '♘', '♖']
       ]
     else
       hash[:table]
     end
+  end
+
+  def white_pawn_line
+    [
+      WhitePawn.new,
+      WhitePawn.new,
+      WhitePawn.new,
+      WhitePawn.new,
+      WhitePawn.new,
+      WhitePawn.new,
+      WhitePawn.new,
+      WhitePawn.new
+    ]
+  end
+
+  def black_pawn_line
+    [
+      BlackPawn.new,
+      BlackPawn.new,
+      BlackPawn.new,
+      BlackPawn.new,
+      BlackPawn.new,
+      BlackPawn.new,
+      BlackPawn.new,
+      BlackPawn.new
+    ]
   end
 end
