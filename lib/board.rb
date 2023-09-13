@@ -69,8 +69,8 @@ class Board
       WhiteRook.new,
       WhiteKnight.new,
       WhiteBishop.new,
-      WhiteKing.new,
       WhiteQueen.new,
+      WhiteKing.new,
       WhiteBishop.new,
       WhiteKnight.new,
       WhiteRook.new
