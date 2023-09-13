@@ -1,5 +1,10 @@
 require_relative 'string'
 require_relative 'pawn'
+require_relative 'rook'
+require_relative 'knight'
+require_relative 'bishop'
+require_relative 'queen'
+require_relative 'king'
 
 class Board
   def initialize(**hash)
@@ -32,18 +37,44 @@ class Board
   def initialize_table(hash)
     if hash[:table].nil?
       [
-        ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜'],
+        black_pieces_line,
         black_pawn_line,
         blank_line,
         blank_line,
         blank_line,
         blank_line,
         white_pawn_line,
-        ['♖', '♘', '♗', '♕', '♔', '♗', '♘', '♖']
+        white_pieces_line
       ]
     else
       hash[:table]
     end
+  end
+
+  def black_pieces_line
+    [
+      BlackKnight.new,
+      BlackRook.new,
+      BlackBishop.new,
+      BlackQueen.new,
+      BlackKing.new,
+      BlackBishop.new,
+      BlackKnight.new,
+      BlackRook.new
+    ]
+  end
+
+  def white_pieces_line
+    [
+      WhiteRook.new,
+      WhiteKnight.new,
+      WhiteBishop.new,
+      WhiteKing.new,
+      WhiteQueen.new,
+      WhiteBishop.new,
+      WhiteKnight.new,
+      WhiteRook.new
+    ]
   end
 
   def white_pawn_line
