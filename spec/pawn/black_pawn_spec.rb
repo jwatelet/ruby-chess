@@ -1,4 +1,4 @@
-require_relative '../lib/pawn'
+require_relative '../../lib/pawn'
 
 describe BlackPawn do
   let(:pawn) { WhitePawn.new }

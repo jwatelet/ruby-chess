@@ -1,9 +1,11 @@
-class Pawn
+require_relative 'piece'
+
+class Pawn < Piece
   WHITE_PAWN = '♙'.freeze
   BLACK_PAWN = "\u265F".freeze
 
   def initialize(**hash)
-    @color = hash[:color]
+    super(hash[:color])
   end
 
   def to_s
