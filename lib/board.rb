@@ -34,10 +34,10 @@ class Board
       [
         ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜'],
         black_pawn_line,
-        [nil, nil, nil, nil, nil, nil, nil, nil],
-        [nil, nil, nil, nil, nil, nil, nil, nil],
-        [nil, nil, nil, nil, nil, nil, nil, nil],
-        [nil, nil, nil, nil, nil, nil, nil, nil],
+        blank_line,
+        blank_line,
+        blank_line,
+        blank_line,
         white_pawn_line,
         ['♖', '♘', '♗', '♕', '♔', '♗', '♘', '♖']
       ]
@@ -69,6 +69,19 @@ class Board
       BlackPawn.new,
       BlackPawn.new,
       BlackPawn.new
+    ]
+  end
+
+  def blank_line
+    [
+      nil,
+      nil,
+      nil,
+      nil,
+      nil,
+      nil,
+      nil,
+      nil
     ]
   end
 end
