@@ -32,6 +32,14 @@ class Board
     end
   end
 
+  def move_piece(from, to)
+    x, y = from
+
+    piece = @table[x][y]
+    piece.possible_moves
+
+  end
+
   private
 
   def initialize_table(hash)
