@@ -37,16 +37,26 @@ class WhitePawn < Pawn
     [0, -1]
   ]
 
+  DOUBLE_MOVE = [0, -2]
+
   def initialize
     super(color: :white)
   end
 
   def possible_moves(position)
-    POSSIBLE_MOVES.map do |move|
+    moves = POSSIBLE_MOVES.map do |move|
       next_position = calculate_position(position, move)
 
       next_position if valid?(next_position)
     end.compact
+    moves << calculate_position(position, DOUBLE_MOVE) if not_moved?(position)
+    moves
+  end
+
+  def not_moved?(position)
+    _, y = position
+
+    y == 6
   end
 end
 
@@ -55,15 +65,25 @@ class BlackPawn < Pawn
     [0, 1]
   ]
 
+  DOUBLE_MOVE = [0, 2]
+
   def initialize
     super(color: :black)
   end
 
   def possible_moves(position)
-    POSSIBLE_MOVES.map do |move|
+    moves = POSSIBLE_MOVES.map do |move|
       next_position = calculate_position(position, move)
 
       next_position if valid?(next_position)
     end.compact
+    moves << calculate_position(position, DOUBLE_MOVE) if not_moved?(position)
+    moves
+  end
+
+  def not_moved?(position)
+    _, y = position
+
+    y == 2
   end
 end

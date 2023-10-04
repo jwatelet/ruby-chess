@@ -10,8 +10,22 @@ describe BlackPawn do
   end
 
   describe '#possible_moves' do
-    it 'returns all possible moves' do
-      expect(pawn.possible_moves([0, 2])).to eql([[0, 3]])
+    describe 'when the pawn did not move' do
+      it 'returns all possible moves' do
+        expect(pawn.possible_moves([0, 2])).to eql([[0, 3], [0, 4]])
+      end
+    end
+
+    describe 'when the pawn did move' do
+      it 'returns all possible moves' do
+        expect(pawn.possible_moves([0, 3])).to eql([[0, 4]])
+      end
+    end
+
+    describe 'when the pawn is next the end of the board' do
+      it 'returns empty possible moves' do
+        expect(pawn.possible_moves([0, 7])).to eql([])
+      end
     end
   end
 end
