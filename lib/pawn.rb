@@ -30,6 +30,16 @@ class Pawn < Piece
 
     [pos_x + move_x, pos_y + move_y]
   end
+
+  def not_moved?(position)
+    _, y = position
+
+    y == if @color == :white
+           6
+         else
+           2
+         end
+  end
 end
 
 class WhitePawn < Pawn
@@ -52,12 +62,6 @@ class WhitePawn < Pawn
     moves << calculate_position(position, DOUBLE_MOVE) if not_moved?(position)
     moves
   end
-
-  def not_moved?(position)
-    _, y = position
-
-    y == 6
-  end
 end
 
 class BlackPawn < Pawn
@@ -79,11 +83,5 @@ class BlackPawn < Pawn
     end.compact
     moves << calculate_position(position, DOUBLE_MOVE) if not_moved?(position)
     moves
-  end
-
-  def not_moved?(position)
-    _, y = position
-
-    y == 2
   end
 end
